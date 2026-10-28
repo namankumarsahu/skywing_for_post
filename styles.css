@@ -1,0 +1,147 @@
+/* Skywing Cargo Packers - Hyderabad page
+   Keeps the original look (Poppins, peach header, teal/red/orange accents)
+   and applies the UI/UX audit fixes. */
+:root{
+  --teal:#1a4a5a;
+  --teal-dark:#0b2a35;
+  --peach:#fbeadb;
+  --red:#c40d0d;
+  --orange:#e8890c;      /* original orange, slightly darker for readable contrast on white */
+  --ink:#2b3338;
+  --muted:#5d686e;
+  --tint:#f7f9fa;
+  --line:#e3e8ea;
+  --wa:#1fa855;
+  --measure:72ch;
+  --container:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{margin:0;font-family:"Poppins",Arial,sans-serif;font-size:16px;line-height:1.75;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.container{width:min(var(--container),calc(100% - 40px));margin-inline:auto}
+.skip-link{position:absolute;left:12px;top:-60px;background:#fff;padding:10px 14px;z-index:100;border-radius:6px}
+.skip-link:focus{top:10px}
+
+/* ---------- Header (UI-01) ---------- */
+.site-header{position:sticky;top:0;z-index:50;background:var(--peach);box-shadow:0 1px 0 rgba(0,0,0,.06)}
+.header-inner{display:flex;align-items:center;gap:24px;min-height:84px}
+.brand{flex:none;display:block}
+.brand img{height:58px;width:auto}
+.header-inner.wide-header{width:min(1280px,calc(100% - 40px))}
+.primary-nav{display:flex;align-items:center;gap:clamp(14px,2vw,30px);margin-inline:auto}
+.primary-nav a{font-weight:500;font-size:15px;text-decoration:none;color:#1d2a30;padding:6px 0;border-bottom:2px solid transparent;white-space:nowrap}
+.primary-nav a:hover,.primary-nav a[aria-current="page"]{border-bottom-color:var(--orange)}
+.header-actions{display:flex;align-items:center;gap:10px;flex:none}
+.whatsapp-btn,.enquiry-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border-radius:8px;font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap;transition:transform .15s,background .15s}
+.whatsapp-btn{background:#fff;color:#14803f;border:1.5px solid #9fd6b3}
+.whatsapp-btn:hover{background:#eefaf2;transform:translateY(-1px)}
+.whatsapp-btn svg{color:var(--wa)}
+.enquiry-btn{background:var(--teal);color:#fff;border:1.5px solid var(--teal)}
+.enquiry-btn:hover{background:var(--teal-dark);transform:translateY(-1px)}
+.menu-toggle{display:none;margin-left:auto;width:44px;height:44px;border:0;border-radius:8px;background:transparent;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:5px}
+.menu-toggle span{width:24px;height:2px;background:var(--teal);transition:transform .2s,opacity .2s}
+.menu-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ---------- Hero (UI-07) ---------- */
+.hero{position:relative;min-height:clamp(380px,42vw,520px);display:flex;align-items:center;background:#31506a url("assets/hero-truck.jpg") center/cover no-repeat;color:#fff;isolation:isolate}
+.hero-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(8,30,40,.78) 0%,rgba(8,30,40,.45) 45%,rgba(8,30,40,.05) 75%)}
+.hero-inner{display:flex;align-items:center;justify-content:space-between;gap:32px}
+.hero-copy{max-width:560px}
+.hero-kicker{margin:0 0 8px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#ffd9a0}
+.hero h1{margin:0;font-size:clamp(30px,4.4vw,52px);line-height:1.15;font-weight:700;text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.hero-sub{margin:14px 0 0;font-size:clamp(15px,1.6vw,18px);line-height:1.6;color:#f1f5f6}
+.call-cta{display:inline-grid;grid-template-columns:auto auto;align-items:center;gap:2px 24px;margin-top:22px;padding:14px 24px;border-radius:14px;background:var(--red);box-shadow:0 12px 30px rgba(0,0,0,.28)}
+.call-label{grid-column:1/-1;font-size:12px;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;color:#ffd9d9}
+.call-cta a{font-size:clamp(18px,2vw,23px);font-weight:600;text-decoration:none;line-height:1.5}
+.call-cta a:hover{text-decoration:underline}
+
+/* ---------- Content grid (UI-02 to UI-06) ---------- */
+.section{padding:clamp(40px,6vw,72px) 0}
+.section-tint{background:var(--tint)}
+.content p{margin:0 0 1.1em;max-width:var(--measure)}
+.split .split-text p{max-width:none}
+.testimonial{max-width:calc(var(--measure) + 56px)}
+.content strong{font-weight:600}             /* emphasis only where it means something */
+.title-dark{margin:0 0 .6em;font-size:clamp(24px,3vw,32px);line-height:1.3;font-weight:600;color:#1d2a30}
+.sub-orange{margin:2em 0 .6em;font-size:clamp(20px,2.2vw,25px);line-height:1.35;font-weight:500;color:var(--orange)}
+.section>.container>.sub-orange:first-child,.content>.sub-orange:first-child{margin-top:0}
+.meta{font-size:14px;color:var(--muted)}
+.testimonial{margin:0;padding:24px 28px;background:var(--tint);border-left:4px solid var(--orange);border-radius:0 12px 12px 0}
+.testimonial footer{font-size:14px;color:var(--muted);margin-top:.5em}
+.list-intro{font-weight:600;margin-bottom:.5em!important}
+.cta-line a{color:var(--teal);font-weight:600;text-decoration:none;border-bottom:2px solid var(--orange)}
+.cta-line a:hover{color:var(--teal-dark)}
+
+/* bullet lists (UI-03) */
+.bullet-list{margin:0 0 1.3em;padding:0;list-style:none}
+.bullet-list li{position:relative;padding:4px 0 4px 26px}
+.bullet-list li::before{content:"";position:absolute;left:4px;top:.95em;width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.bullet-list.two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px}
+
+/* two-column rows share one grid: text 1.25fr / image 1fr, aligned top */
+.split{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center;margin-bottom:2.2em}
+.split.reverse{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)}
+.split-text p:last-child,.split-text .bullet-list:last-child{margin-bottom:0}
+.split-img{margin:0}
+.split-img img{width:100%;border-radius:14px;object-fit:cover;aspect-ratio:4/3;box-shadow:0 10px 28px rgba(11,42,53,.12)}
+.split-img.contain img{object-fit:contain;aspect-ratio:1/1;box-shadow:none;background:#fff}
+.split-text.full{max-width:var(--measure)}
+
+/* replaces "WE ARE MOVING" artwork */
+.moving-banner{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:1em;padding:28px 32px;border-radius:16px;background:linear-gradient(100deg,var(--teal) 0%,var(--teal-dark) 100%);color:#fff}
+.moving-banner strong{display:block;font-size:clamp(20px,2.4vw,26px);font-weight:600;line-height:1.3}
+.moving-banner span{display:block;margin-top:4px;color:#d3e0e4;font-size:15px}
+.moving-banner .enquiry-btn{background:var(--orange);border-color:var(--orange);color:#1a1200}
+.moving-banner .enquiry-btn:hover{background:#f39a1e}
+
+/* ---------- Footer (UI-08) ---------- */
+.site-footer{background:var(--teal-dark);color:#e8eff1}
+.footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1.2fr;gap:clamp(28px,5vw,64px);padding:clamp(40px,5vw,60px) 0}
+.site-footer h2{margin:0 0 14px;font-size:20px;font-weight:600;color:#fff}
+.site-footer p,.site-footer address{margin:0 0 .8em;font-style:normal;font-size:15px;line-height:1.7}
+.footer-links{list-style:none;margin:0;padding:0}
+.footer-links li{margin-bottom:10px}
+.footer-links a{color:#ffb347;font-weight:600;text-decoration:none}
+.footer-links a:hover,.footer-bottom a:hover,.site-footer address a:hover,.site-footer p a:hover{text-decoration:underline}
+.site-footer p a{color:#fff}
+.footer-bottom{background:#071d26;font-size:14px}
+.footer-bottom .container{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 28px;padding:18px 0;color:#c4d1d6}
+.footer-bottom a{color:#fff;font-weight:500}
+.to-top{position:fixed;right:18px;bottom:18px;z-index:40;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:#fff;color:var(--orange);font-size:26px;font-weight:700;line-height:1;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.2)}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1040px){
+  .header-inner{gap:14px}
+  .primary-nav a{font-size:14px}
+  .whatsapp-btn{padding:0 12px}
+}
+@media (max-width:900px){
+  .menu-toggle{display:flex}
+  .header-inner{flex-wrap:wrap;min-height:0;padding-top:8px}
+  .header-actions{order:3;width:100%;padding-bottom:10px}
+  .header-actions>a{flex:1}
+  .brand img{height:52px}
+  .primary-nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px 20px 18px;background:var(--peach);box-shadow:0 14px 24px rgba(0,0,0,.12)}
+  .primary-nav.open{display:flex}
+  .primary-nav a{padding:12px 0;border-bottom:1px solid rgba(0,0,0,.08)}
+  .primary-nav::after{content:"";display:block}
+  .hero-inner{flex-direction:column;align-items:flex-start;justify-content:center;padding:36px 0}
+  .hero-shade{background:linear-gradient(180deg,rgba(8,30,40,.72),rgba(8,30,40,.45))}
+  .footer-grid{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .split,.split.reverse{grid-template-columns:1fr}
+  .split.reverse .split-img{order:2}
+  .split-img img{aspect-ratio:16/10}
+  .split-img.contain{max-width:260px}
+  .bullet-list.two-col{grid-template-columns:1fr}
+  .moving-banner{flex-direction:column;align-items:flex-start;padding:24px}
+  .testimonial{padding:20px}
+  body{font-size:15.5px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
